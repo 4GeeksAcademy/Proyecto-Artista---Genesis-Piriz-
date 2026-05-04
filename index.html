@@ -446,6 +446,7 @@
     </div>
 
     <script>
+        document.addEventListener("DOMContentLoaded", () => {
         const menuToggle = document.getElementById("menuToggle");
         const siteMenu = document.getElementById("siteMenu");
         const portfolioLinks = Array.from(document.querySelectorAll(".portfolio-link"));
@@ -455,6 +456,12 @@
         const lightboxClose = document.getElementById("lightboxClose");
         const lightboxPrev = document.getElementById("lightboxPrev");
         const lightboxNext = document.getElementById("lightboxNext");
+
+        if (!menuToggle || !siteMenu || !lightbox || !lightboxImage || !lightboxCaption || !lightboxClose || !lightboxPrev || !lightboxNext) {
+            console.error("No se pudieron inicializar algunos elementos interactivos de la pagina.");
+            return;
+        }
+
         let currentIndex = 0;
         let lastFocusedElement = null;
 
@@ -558,6 +565,7 @@
             if (event.key === "ArrowRight") {
                 showNext();
             }
+        });
         });
     </script>
 </body>
